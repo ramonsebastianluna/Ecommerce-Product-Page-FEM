@@ -1,0 +1,5 @@
+@mixin sm-viewport {
+    @media only screen and (max-width: 412px) {
+        @content;
+    };
+}
