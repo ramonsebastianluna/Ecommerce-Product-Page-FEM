@@ -6,7 +6,7 @@ const Cart = () => {
 
     return (
         <>
-            <div>mi carrito tiene {itemsCart} productos</div>
+            <div>El precio se multiplica por {itemsCart}</div>
         </>
     )
 }

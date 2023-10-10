@@ -1,5 +1,6 @@
 import { productsContext } from "../contexts/productsContext";
 import { useState } from "react";
+import { products } from "../data/data";
 
 const ProductsContextComponent = ({children}) => {
     const [itemsCart, setItemsCart] = useState(0)
@@ -12,12 +13,15 @@ const ProductsContextComponent = ({children}) => {
         itemsCart !== 0 && setItemsCart(prev => prev - 1)
     }
 
-    const products = [0,1,2,3,4,5];
-
-    
-    
     return (
-        <productsContext.Provider value={{products, itemsCart, increaseItemCart, decreaseItemCart}}>
+        <productsContext.Provider
+            value={{
+                products,
+                itemsCart,
+                increaseItemCart,
+                decreaseItemCart,
+            }}
+        >
             {children}
         </productsContext.Provider>
     )
