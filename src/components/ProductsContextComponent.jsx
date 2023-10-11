@@ -15,7 +15,7 @@ const ProductsContextComponent = ({children}) => {
     useEffect(() => {
         axios.get('https://fakestoreapi.com/products')
             .then(response => {
-                console.log(response.data)
+                console.log(response.data) //borrar esto una vez terminada la lógica.
                 setData(response.data)    
             })
     }, [])
