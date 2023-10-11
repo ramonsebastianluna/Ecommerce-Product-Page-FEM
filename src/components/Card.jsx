@@ -2,20 +2,20 @@ import { productsContext } from "../contexts/productsContext"
 import { useContext } from "react"
 
 const Card = () => {
-    const { data } = useContext(productsContext)
+    const { data, addToCart } = useContext(productsContext)
 
     return (
         <>
             <div>
                 <h1>Lista de Productos</h1>
                 <ul>
-                    {data.map((data) => (
-                    <li key={data.id}>
-                        <h2>{data.title}</h2>
-                        <p>{data.description}</p>
-                        <p>Precio: ${data.price}</p>
-                        <img src={data.image} alt="" style={{width: '50px'}} />
-                        <button>Add to cart el producto {data.id}</button>
+                    {data.map((product, index) => (
+                    <li key={product.id}>
+                        <h2>{product.title}</h2>
+                        <p>{product.description}</p>
+                        <p>Precio: ${product.price}</p>
+                        <img src={product.image} alt="" style={{width: '50px'}} />
+                        <button onClick={() => addToCart(index)}>Add to cart el producto {product.id}</button>
                     </li>
                     ))}
                 </ul>

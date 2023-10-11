@@ -6,6 +6,11 @@ import axios from "axios";
 const ProductsContextComponent = ({children}) => {
     const [itemsCart, setItemsCart] = useState(0)
     const [data, setData] = useState([])
+    const [cart, setCart] = useState([])
+
+    const addToCart = (index) => {
+        setCart([...cart, data[index]])
+    }
 
     useEffect(() => {
         axios.get('https://fakestoreapi.com/products')
@@ -30,8 +35,10 @@ const ProductsContextComponent = ({children}) => {
                 products,
                 itemsCart,
                 data,
+                cart,
                 increaseItemCart,
-                decreaseItemCart
+                decreaseItemCart,
+                addToCart
             }}
         >
             {children}
