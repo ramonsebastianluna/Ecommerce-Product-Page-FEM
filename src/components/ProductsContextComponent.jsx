@@ -24,6 +24,7 @@ const ProductsContextComponent = ({children}) => {
     return (
         <productsContext.Provider
             value={{
+                products,
                 data,
                 cart,
                 addToCart
