@@ -1,15 +1,20 @@
-import { useContext } from "react";
-import { productsContext } from "../contexts/productsContext";
+import { useState, useContext } from "react";
 
-const Amount = () => {
+const Amount = ({amountProduct}) => {
+    const [amount, setAmount] = useState(amountProduct)
 
-    const {itemsCart, increaseItemCart, decreaseItemCart} = useContext(productsContext);
+    const increaseAmount = () => {
+        setAmount(prev => prev + 1)
+    }
 
+    const decreaseAmount = () => {
+        amount !== 1 && setAmount(prev => prev - 1)
+    }
     return (
         <>
-            <button onClick={decreaseItemCart}>-</button>
-            <div>{itemsCart}</div>
-            <button onClick={increaseItemCart}>+</button>
+            <button onClick={decreaseAmount}>-</button>
+            <div>{amount}</div>
+            <button onClick={increaseAmount}>+</button>
         </>
     )
 }
