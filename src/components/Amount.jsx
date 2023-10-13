@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useState, useContext } from "react";
 
 const Amount = ({amountProduct}) => {
     const [amount, setAmount] = useState(amountProduct)
