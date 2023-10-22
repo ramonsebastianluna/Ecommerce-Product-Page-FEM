@@ -17,10 +17,9 @@ const Card = () => {
                         <p>Precio: ${product.price}</p>
                         <img src={product.image} alt="" style={{width: '50px'}} />
                         <div style={{display: "flex"}}>
-                            <Amount amountProduct = {product.cantidad}/>
+                            <Amount/>
                         </div>
-                        <div>{product.id} + {index}</div>
-                        <button onClick={() => addToCart(index)}>Add to cart el producto {product.id}</button>
+                        <button onClick={() => addToCart(product, 4)}>Add to cart el producto {product.id}</button>
                     </li>
                     ))}
                 </ul>
