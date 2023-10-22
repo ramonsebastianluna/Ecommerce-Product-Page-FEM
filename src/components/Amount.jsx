@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useState, useEffect} from "react"
 
-const Amount = () => {
+const Amount = ({sendAmount}) => {
     
     const [amount, setAmount] = useState(1)
 
@@ -11,6 +11,11 @@ const Amount = () => {
     const decreaseAmount = () => {
         amount !== 1 && setAmount(prev => prev - 1)
     }
+
+    useEffect(()=>{
+        sendAmount(amount)
+    }, [amount])
+    //cuando agrego un nuevo objeto al carrito me queda la cantidad del anterior. Corregir.
 
     return (
         <>

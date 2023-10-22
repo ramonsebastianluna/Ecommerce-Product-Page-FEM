@@ -6,13 +6,12 @@ const Cart = () => {
 
     return (
         <>
-            <div>El precio se multiplica por {}</div>
             <ul>
                 {cart.map((product, index) => (
-                <li key={index}>
+                    <li key={index}>
                     <h2>{product.title}</h2>                    
                     <img src={product.image} alt="" style={{width: '50px'}} />
-                    <p>{product.cantidad}</p>
+                    <p>${product.price} x {product.cantidad} <span style={{fontWeight: 'bold', color: "black"}}>${product.price * product.cantidad}</span></p>
                 </li>
                 ))}
             </ul>
