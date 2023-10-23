@@ -15,7 +15,6 @@ const Amount = ({sendAmount}) => {
     useEffect(()=>{
         sendAmount(amount)
     }, [amount])
-    //cuando agrego un nuevo objeto al carrito me queda la cantidad del anterior. Corregir.
 
     return (
         <>

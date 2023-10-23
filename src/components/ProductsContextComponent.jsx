@@ -6,14 +6,13 @@ const ProductsContextComponent = ({children}) => {
     const [data, setData] = useState([])
     const [cart, setCart] = useState([])
 
-    const addToCart = (product, amount) => {
+    const addToCart = (product) => {
         const indexOfProduct = cart.findIndex(item => item.id === product.id)
         if (indexOfProduct === -1) {
-            product.cantidad = amount
             setCart(prev => [...prev, product]);
         } else {
             const clonedCart = structuredClone(cart)
-            clonedCart[indexOfProduct].cantidad = amount
+            clonedCart[indexOfProduct].amount = product.amount
             setCart(clonedCart)
         }
     }
@@ -21,7 +20,7 @@ const ProductsContextComponent = ({children}) => {
     useEffect(() => {
         axios.get('https://fakestoreapi.com/products')
             .then(response => {
-                response.data.map((product)=>{product.cantidad = 1})
+                response.data.map((product)=>{product.amount = 1})
                 setData(response.data)    
             })
     }, [])

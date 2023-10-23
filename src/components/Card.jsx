@@ -4,11 +4,6 @@ import Amount from "./Amount"
 
 const Card = () => {
     const { data, addToCart } = useContext(productsContext)
-    const [amountProduct, setAmountProduct] = useState(1)
-
-    const handleAmountProduct = (amount) => {
-        setAmountProduct(amount)
-    }
 
     return (
         <>
@@ -22,9 +17,9 @@ const Card = () => {
                         <p>Precio: ${product.price}</p>
                         <img src={product.image} alt="" style={{width: '50px'}} />
                         <div style={{display: "flex"}}>
-                            <Amount sendAmount={handleAmountProduct}/>
+                            <Amount sendAmount={(amount)=>{product.amount = amount}}/>
                         </div>
-                        <button onClick={() => addToCart(product, amountProduct)}>Add to cart el producto {product.id}</button>
+                        <button onClick={() => addToCart(product)}>Add to cart el producto {product.id}</button>
                     </li>
                     ))}
                 </ul>
