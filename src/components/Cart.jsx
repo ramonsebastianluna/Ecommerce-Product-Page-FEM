@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { productsContext } from "../contexts/productsContext";
 
 const Cart = () => {
-    const { cart } = useContext(productsContext);
+    const { cart, deleteProductCart } = useContext(productsContext);
 
     return (
         <>
@@ -12,6 +12,7 @@ const Cart = () => {
                     <h2>{product.title}</h2>                    
                     <img src={product.image} alt="" style={{width: '50px'}} />
                     <p>${product.price} x {product.amount} <span style={{fontWeight: 'bold', color: "black"}}>${product.price * product.amount}</span></p>
+                    <button onClick={(product)=>{deleteProductCart(product)}}>Eliminar producto</button>
                 </li>
                 ))}
             </ul>

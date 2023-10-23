@@ -17,6 +17,13 @@ const ProductsContextComponent = ({children}) => {
         }
     }
 
+    const deleteProductCart = (product) => {
+        const indexOfProduct = cart.findIndex(item => item.id === product.id)
+        const clonedCart = structuredClone(cart)
+        clonedCart.splice(indexOfProduct, 1)
+        setCart(clonedCart)
+    }
+
     useEffect(() => {
         axios.get('https://fakestoreapi.com/products')
             .then(response => {
@@ -31,7 +38,8 @@ const ProductsContextComponent = ({children}) => {
             value={{
                 data,
                 cart,
-                addToCart
+                addToCart,
+                deleteProductCart
             }}
         >
             {children}
