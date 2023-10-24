@@ -18,10 +18,9 @@ const ProductsContextComponent = ({children}) => {
         }
     }
 
-    const deleteProductCart = (product) => {
-        const indexOfProduct = cart.findIndex(item => item.id === product.id)
+    const deleteProductCart = (index) => {
         const clonedCart = structuredClone(cart)
-        clonedCart.splice(indexOfProduct, 1)
+        clonedCart.splice(index, 1)
         setCart(clonedCart)
     }
 

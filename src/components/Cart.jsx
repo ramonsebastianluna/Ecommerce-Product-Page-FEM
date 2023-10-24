@@ -12,7 +12,7 @@ const Cart = () => {
                     <h2>{product.title}</h2>                    
                     <img src={product.image} alt="" style={{width: '50px'}} />
                     <p>${product.price} x {product.amount} <span style={{fontWeight: 'bold', color: "black"}}>${product.price * product.amount}</span></p>
-                    <button onClick={(product)=>{deleteProductCart(product)}}>Eliminar producto</button>
+                    <button onClick={()=>{deleteProductCart(index)}}>Eliminar producto</button>
                 </li>
                 ))}
             </ul>
