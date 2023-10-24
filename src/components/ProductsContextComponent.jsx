@@ -5,6 +5,7 @@ import axios from "axios";
 const ProductsContextComponent = ({children}) => {
     const [data, setData] = useState([])
     const [cart, setCart] = useState([])
+    const [cartLength, setCartLength] = useState(0)
 
     const addToCart = (product) => {
         const indexOfProduct = cart.findIndex(item => item.id === product.id)
@@ -25,6 +26,17 @@ const ProductsContextComponent = ({children}) => {
     }
 
     useEffect(() => {
+        if (cart.length === 0) {
+            setCartLength(0)
+        } else {
+            const totalAmount = cart.reduce((accumulator, product) => {
+                return accumulator + product.amount
+            }, 0)
+            setCartLength(totalAmount)
+        }
+    }, [cart])
+
+    useEffect(() => {
         axios.get('https://fakestoreapi.com/products')
             .then(response => {
                 response.data.map((product)=>{product.amount = 1})
@@ -38,6 +50,7 @@ const ProductsContextComponent = ({children}) => {
             value={{
                 data,
                 cart,
+                cartLength,
                 addToCart,
                 deleteProductCart
             }}
