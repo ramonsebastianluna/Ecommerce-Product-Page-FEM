@@ -7,13 +7,13 @@ import './sass/main.scss'
 
 
 function App() {
-  return (
-    <ProductsContextComponent>
-        <Header />
-        <CartCounter />
-        <Cart />
-        <Card />
-    </ProductsContextComponent>
+    return (
+        <ProductsContextComponent>
+            <Header />
+            <CartCounter />
+            <Cart />
+            <Card />
+        </ProductsContextComponent>
   )
 }
 
