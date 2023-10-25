@@ -36,12 +36,48 @@ const ProductsContextComponent = ({children}) => {
     }, [cart])
 
     useEffect(() => {
+        getAllProducts()
+    }, [])
+
+    const getAllProducts = () => {
         axios.get('https://fakestoreapi.com/products')
+        .then(response => {
+            response.data.map((product)=>{product.amount = 1})
+            setData(response.data)    
+        })
+    }
+
+    const getElectronics = () => {
+        axios.get('https://fakestoreapi.com/products/category/electronics')
             .then(response => {
                 response.data.map((product)=>{product.amount = 1})
                 setData(response.data)    
             })
-    }, [])
+    }
+
+    const getJewelery = () => {
+        axios.get('https://fakestoreapi.com/products/category/jewelery')
+            .then(response => {
+                response.data.map((product)=>{product.amount = 1})
+                setData(response.data)    
+            })
+    }
+
+    const getMensClothing = () => {
+        axios.get(`https://fakestoreapi.com/products/category/men\'s clothing`)
+            .then(response => {
+                response.data.map((product)=>{product.amount = 1})
+                setData(response.data)    
+            })
+    }
+
+    const getWomensClothing = () => {
+        axios.get(`https://fakestoreapi.com/products/category/women\'s clothing`)
+            .then(response => {
+                response.data.map((product)=>{product.amount = 1})
+                setData(response.data)    
+            })
+    }
 
 
     return (
@@ -51,7 +87,12 @@ const ProductsContextComponent = ({children}) => {
                 cart,
                 cartLength,
                 addToCart,
-                deleteProductCart
+                deleteProductCart,
+                getElectronics,
+                getJewelery,
+                getMensClothing,
+                getWomensClothing,
+                getAllProducts
             }}
         >
             {children}

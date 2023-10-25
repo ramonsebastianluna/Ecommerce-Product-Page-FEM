@@ -1,5 +1,5 @@
 import { productsContext } from "../contexts/productsContext"
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import Amount from "./Amount"
 
 const Card = () => {
