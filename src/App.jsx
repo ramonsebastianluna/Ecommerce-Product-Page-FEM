@@ -1,4 +1,4 @@
-import ProductsContextComponent from './components/ProductsContextComponent';
+import ProductsContextComponent from './contexts/ProductsContextComponent';
 import Cart from './components/Cart';
 import Card from './components/Card';
 import CartCounter from './components/CartCounter';

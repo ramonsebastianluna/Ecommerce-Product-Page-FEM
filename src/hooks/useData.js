@@ -1,11 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 
-const useGetData = () => {
+const useData = () => {
     const [data, setData] = useState([])
+    const PREFIX_ENDPOINT = 'https://fakestoreapi.com'
 
     const getAllProducts = () => {
-        axios.get('https://fakestoreapi.com/products')
+        axios.get(`${PREFIX_ENDPOINT}/products `)
         .then(response => {
             response.data.map((product)=>{product.amount = 1})
             setData(response.data)    
@@ -13,7 +14,7 @@ const useGetData = () => {
     }
 
     const getElectronics = () => {
-        axios.get('https://fakestoreapi.com/products/category/electronics')
+        axios.get(`${PREFIX_ENDPOINT}/products/category/electronics`)
             .then(response => {
                 response.data.map((product)=>{product.amount = 1})
                 setData(response.data)    
@@ -21,7 +22,7 @@ const useGetData = () => {
     }
 
     const getJewelery = () => {
-        axios.get('https://fakestoreapi.com/products/category/jewelery')
+        axios.get(`${PREFIX_ENDPOINT}/products/category/jewelery`)
             .then(response => {
                 response.data.map((product)=>{product.amount = 1})
                 setData(response.data)    
@@ -29,7 +30,7 @@ const useGetData = () => {
     }
 
     const getMensClothing = () => {
-        axios.get(`https://fakestoreapi.com/products/category/men\'s clothing`)
+        axios.get(`${PREFIX_ENDPOINT}/products/category/men\'s clothing`)
             .then(response => {
                 response.data.map((product)=>{product.amount = 1})
                 setData(response.data)    
@@ -37,7 +38,7 @@ const useGetData = () => {
     }
 
     const getWomensClothing = () => {
-        axios.get(`https://fakestoreapi.com/products/category/women\'s clothing`)
+        axios.get(`${PREFIX_ENDPOINT}/products/category/women\'s clothing`)
             .then(response => {
                 response.data.map((product)=>{product.amount = 1})
                 setData(response.data)    
@@ -54,4 +55,4 @@ const useGetData = () => {
     }
 }
 
-export default useGetData
+export default useData

@@ -1,6 +1,6 @@
-import { productsContext } from "../contexts/productsContext";
+import { productsContext } from "./productsContext";
 import { useState, useEffect } from "react";
-import useGetData from "../customHooks/useGetData";
+import useData from "../hooks/useData";
 
 const ProductsContextComponent = ({children}) => {
     const [cart, setCart] = useState([])
@@ -12,7 +12,7 @@ const ProductsContextComponent = ({children}) => {
         getJewelery,
         getMensClothing,
         getWomensClothing
-    } = useGetData()
+    } = useData()
 
     const addToCart = (product) => {
         const indexOfProduct = cart.findIndex(item => item.id === product.id)
