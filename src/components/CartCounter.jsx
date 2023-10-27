@@ -5,7 +5,7 @@ const CartCounter = () => {
     const {cartLength} = useContext(productsContext)
 
     return (
-        <div>{cartLength} productos en el carrito</div>
+        <div>{cartLength}</div>
     )
 }
 
