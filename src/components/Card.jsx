@@ -34,7 +34,7 @@ const Card = () => {
                             <div style={{display: "flex"}}>
                                 <Amount sendAmount={(amount)=>{product.amount = amount}}/>
                             </div>
-                            <button onClick={() => addToCart(product)}>Add to cart el producto {product.id}</button>
+                            <button className="btn btn-secondary" onClick={() => addToCart(product)}>Add to cart el producto {product.id}</button>
                         </li>
                         ))}
                     </Slider>
