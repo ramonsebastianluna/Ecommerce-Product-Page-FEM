@@ -81,8 +81,13 @@ const Header = () => {
                                 </li>
                             </ul>
                             <div>
-                                <img src={iconCart} alt="Icon Cart" />
-                                <CartCounter />
+                                <a type="button" className="position-relative">
+                                    <img src={iconCart} alt="Icon Cart" />
+                                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        <CartCounter />
+                                        <span className="visually-hidden">unread messages</span>
+                                    </span>
+                                </a>
                             </div>
                             <div>
                                 <img className="rounded-circle" src={seba} alt="Seba" style={{width: '55px'}} />
