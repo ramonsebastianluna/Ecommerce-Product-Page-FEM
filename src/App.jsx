@@ -9,9 +9,13 @@ import './sass/main.scss'
 function App() {
     return (
         <ProductsContextComponent>
-            <Header />
-            <Cart />
-            <Card />
+            <div className='container'>
+                <Header />
+                <Cart />
+                <main className='row'>
+                    <Card />
+                </main>
+            </div>
         </ProductsContextComponent>
   )
 }

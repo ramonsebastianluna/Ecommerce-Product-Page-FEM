@@ -6,7 +6,7 @@ const Cart = () => {
 
     return (
         <>
-            <ul>
+            <ul className="d-none">
                 {cart.map((product, index) => (
                     <li key={index}>
                     <h2>{product.title}</h2>                    
