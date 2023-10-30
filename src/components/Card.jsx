@@ -19,29 +19,32 @@ const Card = () => {
     }
 
     return (
-        <>
-            <div>
-                <h1>Lista de Productos</h1>
-                
-                <ul>
-                    <Slider {...settings}> {/* corregir scroll orizontal que genera */}
-                        {data.map((product) => (
-                        <li key={product.id}>
-                            <h2>{product.title}</h2>
-                            <p>{product.description}</p>
-                            <p>Precio: ${product.price}</p>
-                            <img src={product.image} alt="" style={{width: '50px'}} />
-                            <div style={{display: "flex"}}>
-                                <Amount sendAmount={(amount)=>{product.amount = amount}}/>
+        <div>
+            <ul className="p-0">
+                <Slider {...settings}> {/* corregir scroll orizontal que genera */}
+                    {data.map((product) => (
+                    <li key={product.id} className="container-fluid">
+                        <div className="row">
+                            <div className="col-12 col-sm-6">
+                                <img src={product.image} alt="" style={{width: '50px'}} />
                             </div>
-                            <button className="btn btn-secondary" onClick={() => addToCart(product)}>Add to cart el producto {product.id}</button>
-                        </li>
-                        ))}
-                    </Slider>
-                </ul>
-                
-            </div>
-        </>
+                            <div className="col-12 col-sm-6">
+                                <h2>{product.title}</h2>
+                                <p>{product.description}</p>
+                                <p>Precio: ${product.price}</p>
+                                <Amount sendAmount={(amount)=>{product.amount = amount}}/>    
+                                <button
+                                    className="btn btn-secondary"
+                                    onClick={() => addToCart(product)}>
+                                    Add to cart el producto {product.id}
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    ))}
+                </Slider>
+            </ul>  
+        </div>        
     )
 }
 
