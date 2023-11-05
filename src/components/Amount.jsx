@@ -5,7 +5,7 @@ const Amount = ({sendAmount}) => {
     const [amount, setAmount] = useState(1)
 
     const increaseAmount = () => {
-        setAmount(prev => prev + 1)
+        amount < 10 && setAmount(prev => prev + 1)
     }
 
     const decreaseAmount = () => {
@@ -17,11 +17,11 @@ const Amount = ({sendAmount}) => {
     }, [amount])
 
     return (
-        <>
-            <button onClick={decreaseAmount}>-</button>
-            <div>{amount}</div>
-            <button onClick={increaseAmount}>+</button>
-        </>
+        <div className="d-flex d-sm-inline-flex my-3 my-lg-0 me-lg-3 align-items-center rounded-2 amount">
+            <a className="btn amount__btn" onClick={decreaseAmount}>-</a>
+            <p className="m-0 text-center amount__digit">{amount}</p>
+            <button className="btn amount__btn" onClick={increaseAmount}>+</button>
+        </div>
     )
 }
 
