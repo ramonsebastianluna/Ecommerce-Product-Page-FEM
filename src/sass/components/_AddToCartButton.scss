@@ -1,0 +1,22 @@
+.add-to-cart {
+    height: 50px;
+    .add-to-cart__button {
+        font-family: KumbhSans-Bold;
+        color: $White;
+        background-color: $Orange;
+        font-size: 1rem;
+        box-shadow: 1px 16px 49px -18px rgba($Orange,0.75);
+        padding-left: 4rem;
+        padding-right: 4rem;
+        &:hover {
+            background-color: $Orange;
+            color: $White;
+        }
+        &:active {
+            background-color: $Orange !important;
+            border-color: transparent;
+            color: $White !important;
+            opacity: 0.6;
+        }
+    }
+}
