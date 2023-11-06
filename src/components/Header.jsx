@@ -1,6 +1,6 @@
 import { productsContext } from "../contexts/productsContext"
 import { useContext } from "react"
-import MenuButton from "./MenuButton"
+import MenuButton from "./buttons/MenuButton"
 import CartCounter from "./CartCounter"
 import logo from '../assets/images/logo.svg'
 import iconCart from '../assets/images/icon-cart.svg'
