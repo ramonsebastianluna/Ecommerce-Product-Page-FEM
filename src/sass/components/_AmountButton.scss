@@ -1,0 +1,26 @@
+.amount {
+    background-color: $Light-Grayish-Blue;
+    font-family: KumbhSans-Bold;
+    height: 50px;
+    .amount__digit {
+        width: 100%;
+        @include sm-viewport() {
+            width: 80px;
+        }
+    }
+    .amount__btn {
+        font-size: 1.5rem;
+        color: $Orange;
+        &:active {
+            color: $Orange !important;
+            border-color: transparent !important;
+            opacity: 0.6;
+        }
+        &:focus-visible {
+            color: $Orange;
+        }
+        &:hover {
+            color: $Orange;
+        }
+    }
+}
