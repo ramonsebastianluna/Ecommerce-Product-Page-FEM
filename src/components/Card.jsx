@@ -1,13 +1,14 @@
 import { productsContext } from "../contexts/productsContext"
 import { useContext } from "react"
-import Amount from "./Amount"
+import AmountButton from "./buttons/AmountButton"
+import AddToCartButton from "./buttons/AddToCartButton"
 import Slider from "react-slick"
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 
 const Card = () => {
-    const { data, addToCart } = useContext(productsContext)
+    const { data } = useContext(productsContext)
 
     const settings = {
         dots: true,
@@ -32,12 +33,10 @@ const Card = () => {
                                 <h2>{product.title}</h2>
                                 <p>{product.description}</p>
                                 <p>Precio: ${product.price}</p>
-                                <Amount sendAmount={(amount)=>{product.amount = amount}}/>    
-                                <button
-                                    className="btn btn-secondary"
-                                    onClick={() => addToCart(product)}>
-                                    Add to cart el producto {product.id}
-                                </button>
+                                <div class="d-lg-flex">
+                                    <AmountButton sendAmount={(amount)=>{product.amount = amount}}/>
+                                    <AddToCartButton product={product} />
+                                </div>
                             </div>
                         </div>
                     </li>
