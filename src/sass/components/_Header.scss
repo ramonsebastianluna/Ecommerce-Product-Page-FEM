@@ -1,0 +1,22 @@
+.logo {
+    width: 140px;
+    height: 20px;
+}
+
+.burger-menu {
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+
+.profile-img {
+    width: 30px;
+    @include lg-viewport() {
+        width: 50px;
+    }
+}
+
+.cart-counter-content {
+    background-color: $Orange;
+    --bs-badge-padding-y: 0.25em !important;
+}
