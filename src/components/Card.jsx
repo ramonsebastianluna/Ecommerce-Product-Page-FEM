@@ -20,19 +20,22 @@ const Card = () => {
     }
 
     return (
-        <div>
+        <div className="card-container">
             <ul className="p-0">
                 <Slider {...settings}> {/* corregir scroll orizontal que genera */}
                     {data.map((product) => (
-                    <li key={product.id} className="container-fluid">
-                        <div className="row">
-                            <div className="col-12 col-sm-6">
-                                <img src={product.image} alt="" style={{width: '50px'}} />
+                    <li key={product.id} className="container-fluid product-card">
+                        <div className="row product-card__item">
+                            <div className="col-12 col-sm-6 d-flex align-items-center justify-content-center product-card__item__img">
+                                <div className=" rounded-4 d-flex align-items-center justify-content-center product-card__item__img--content">
+                                    <img src={product.image} alt="Product Image"/>
+                                </div>
                             </div>
-                            <div className="col-12 col-sm-6">
-                                <h2>{product.title}</h2>
-                                <p>{product.description}</p>
-                                <p>Precio: ${product.price}</p>
+                            <div className="col-12 col-sm-6 product-card__item__description">
+                                <p className="my-3 product-card__item__description--company-name">SNEAKER COMPANY</p>
+                                <h2 className="product-card__item__description--title">{product.title}</h2>
+                                <p className="my-3 product-card__item__description--product-description">{product.description}</p>
+                                <p className="product-card__item__description--price">Precio: ${product.price}</p>
                                 <div className="d-lg-flex">
                                     <AmountButton sendAmount={(amount)=>{product.amount = amount}}/>
                                     <AddToCartButton product={product} />
