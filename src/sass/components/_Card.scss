@@ -2,6 +2,11 @@
     @include sm-viewport() {
         margin-top: 3rem !important;
     }
+    .slick-slider {
+        .slick-dots {
+            bottom: 0px;
+        }
+    }
     .product-card {
         .product-card__item {
             .product-card__item__img {
@@ -24,8 +29,8 @@
                 }
                 .product-card__item__description--product-description {
                     font-family: KumbhSans-Regular;
-                    max-height: 45%;
-                    overflow: scroll;
+                    max-height: 30%;
+                    overflow-y: auto;
                 }
                 .product-card__item__description--price {
                     color: $Black;
