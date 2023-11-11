@@ -9,6 +9,12 @@
     }
 }
 
+.offcanvas {
+    width: 70% !important;
+    font-family: KumbhSans-Bold;
+    font-size: 1.2rem;
+}
+
 .profile-img {
     width: 30px;
     @include lg-viewport() {
