@@ -3,12 +3,12 @@ import axios from "axios";
 
 const useData = () => {
     const [data, setData] = useState([])
-    const PREFIX_ENDPOINT = 'https://fakestoreapi.com'
+    const PREFIX_ENDPOINT = 'http://127.0.0.1:8000'
 
     const getAllProducts = () => {
-        axios.get(`${PREFIX_ENDPOINT}/products `)
+        axios.get(`${PREFIX_ENDPOINT}/api/products`)
         .then(response => {
-            response.data.map((product)=>{product.amount = 1})
+            response.data.map((product)=>{product.attributes.amount = 1})
             setData(response.data)    
         })
     }
@@ -47,11 +47,12 @@ const useData = () => {
 
     return {
         data,
-        getAllProducts,
-        getElectronics,
-        getJewelery,
-        getMensClothing,
-        getWomensClothing
+        getAllProducts
+        // ,
+        // getElectronics,
+        // getJewelery,
+        // getMensClothing,
+        // getWomensClothing
     }
 }
 
